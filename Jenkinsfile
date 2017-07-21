@@ -69,9 +69,9 @@ pipeline {
 	   echo "Checking Out master Branch"
 	   sh "git checkout master"
 	   echo "Merging Development into Master Branch"
-	   sh "git merge development"
+	   sh 'git merge development'
 	   echo "Pushing to Origin Master"
-	   sh "git push origin master"
+	   sh 'git push origin master'
 	   echo "Tagging the relase"
 	   sh 'git tag rectangle-${MAJOR_VERSION}.${env.BUILD_NUMBER}'
 	   sh 'git push origin rectangle-${MAJOR_VERSION}.${env.BUILD_NUMBER}'
