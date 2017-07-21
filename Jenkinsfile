@@ -73,8 +73,8 @@ pipeline {
 	   echo "Pushing to Origin Master"
 	   sh 'git push origin master'
 	   echo "Tagging the relase"
-	   sh 'git tag rectangle-${MAJOR_VERSION}.${env.BUILD_NUMBER}'
-	   sh 'git push origin rectangle-${MAJOR_VERSION}.${env.BUILD_NUMBER}'
+	   sh "git tag rectangle-${MAJOR_VERSION}.${env.BUILD_NUMBER}"
+	   sh "git push origin rectangle-${MAJOR_VERSION}.${env.BUILD_NUMBER}"
         }
       } 
     }
