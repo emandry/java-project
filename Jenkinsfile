@@ -51,7 +51,7 @@ pipeline {
 	}
 	steps {
 	   sh "mkdir -p /var/www/html/rectangles/all/${env.BRANCH_NAME}"
-	   sh "cp /var/www/html/rectangles/all/${env.BRANCH_NAME}/rectangle_${MAJOR_VERSION}.${env.BUILD_NUMBER}.jar /var/www/html/rectangles/green/rectangle_${MAJOR_VERSION}.${env.BUILD_NUMBER}.jar"
+	   sh "cp /var/www/html/rectangles/all/${env.BRANCH_NAME}/rectangle_${MAJOR_VERSION}.${env.BUILD_NUMBER}.jar /var/www/html/rectangles/green"
         }
       }
 
@@ -65,16 +65,16 @@ pipeline {
 	   sh "git stash"
 	   echo "Checking out development Branch"
 	   sh "git checkout development"
-	   sh 'git pull origin'
 	   echo "Checking Out master Branch"
+	   sh 'git pull origin'
 	   sh "git checkout master"
 	   echo "Merging Development into Master Branch"
 	   sh 'git merge development'
 	   echo "Pushing to Origin Master"
 	   sh 'git push origin master'
 	   echo "Tagging the relase"
-	   sh 'git tag rectangle-${MAJOR_VERSION}.${env.BUILD_NUMBER}'
-	   sh 'git push origin rectangle-${MAJOR_VERSION}.${env.BUILD_NUMBER}'
+	   sh "git tag rectangle-${MAJOR_VERSION}.${env.BUILD_NUMBER}"
+	   sh "git push origin rectangle-${MAJOR_VERSION}.${env.BUILD_NUMBER}"
         }
       } 
     }
