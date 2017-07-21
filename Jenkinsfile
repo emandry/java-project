@@ -1,6 +1,6 @@
 pipeline {
   agent none
-  enviroment {
+  environment {
 	MAJOR_VERSION=1
   }
     stages {
